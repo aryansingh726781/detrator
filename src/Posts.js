@@ -10,9 +10,9 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
+
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+
 
 export const Posts = () => {
     const [fake,setFake]=useState([])
@@ -20,7 +20,7 @@ console.log(fake)
 
 //  useEffect = (() => {
 //     fakestore();
-//  })
+//  },[])
     async function fakestore (){
 
        const result=await axios.get(`https://fakestoreapi.com/products/`)
@@ -34,7 +34,7 @@ console.log(fake)
     <div >
           {fake.map((values)=>(  
         <div  > 
-           <Card sx={{ textAlign:"center", backgroundColor:"silver", height:800, maxWidth: 400,float:'left',margin:2}}>
+           <Card sx={{ overflow:"scroll" ,textAlign:"center", backgroundColor:"silver", height:900, maxWidth: 400,float:'left',margin:2}}>
       <CardActionArea >
 
       <CardMedia
@@ -65,7 +65,7 @@ console.log(fake)
           <Typography variant="body2" color="text.secondary">
             {values.title}
           </Typography>
-          <Button variant="contained" color="primary" startIcon={<DeleteIcon />} >Contained</Button>
+          <Button variant="contained"  color="primary" startIcon={<AddShoppingCartIcon />} >add to cart</Button>
 
 
           
